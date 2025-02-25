@@ -89,6 +89,7 @@ public class RedisEndToEndTests : VerifiableLoggedTest
     [ConditionalTheory]
     [SkipIfDockerNotPresent]
     [MemberData(nameof(TransportTypesAndProtocolTypes))]
+    [QuarantinedTest("https://github.com/dotnet/aspnetcore/issues/59991")]
     public async Task CanSendAndReceiveUserMessagesFromMultipleConnectionsWithSameUser(HttpTransportType transportType, string protocolName)
     {
         using (StartVerifiableLog())
@@ -179,6 +180,7 @@ public class RedisEndToEndTests : VerifiableLoggedTest
         }
     }
 
+    [QuarantinedTest("https://github.com/dotnet/aspnetcore/issues/53644")]
     [ConditionalTheory]
     [SkipIfDockerNotPresent]
     [MemberData(nameof(TransportTypesAndProtocolTypes))]
